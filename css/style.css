@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: iransans;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(147, 71, 223, 0.767);
+    padding: 15px 25px;
+    
+}
+.nav-list {
+    display: flex;
+    flex-direction: row-reverse;
+    list-style-type: none;
+}
+.nav-list li {
+    margin-left: 25px;
+    text-align: center;
+}
+.nav-list li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    transition: 0.2s;
+    
+}
+.nav-list li a:hover {
+    transform: scale(1.1);
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: .4s;
+}
+.logo:hover {
+    transform: scale(1.2);
+}
+#hambergur-toggle {
+    display: none;
+}
+.hambergur {
+    width: 30px;
+    height: 30px;
+    display: none;
+    margin: 40px 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.hambergur .bar {
+    display: inline-block;
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+}
+.hambergur .bar::after,
+.hambergur .bar::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    transition: 0.4s;
+}
+.hambergur .bar::after {
+    transform: translateY(10px);
+}
+.hambergur .bar::before {
+    transform: translateY(-10px);
+}
+@media screen and (max-width: 570px) {
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(91, 206, 202);
+        transform: translateX(-100%);
+        transition: transform 0.9s;
+    }
+    .nav-list li {
+        margin: 10px 0;
+    }
+    .nav-list li a {
+        display: inline-block;
+        color: #fff;
+        transition: all 0.4s;
+        padding: 15px 2px;
+    }
+    .nav-list li a:hover {
+        transform: translateY(-10px);
+        color: rgba(128, 34, 221, 0.699);
+    }
+    .hambergur {
+        z-index: 1;
+        display: flex;
+    }
+    #hambergur-toggle:checked ~ .nav-list {
+        transform: none;
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar {
+        background-color: transparent;
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar::after {
+        transform: rotate(-45deg);
+    }
+    #hambergur-toggle:checked ~ .hambergur .bar::before {
+        transform: rotate(45deg);
+    }
+
+}
+
